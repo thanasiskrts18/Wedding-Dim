@@ -1,176 +1,169 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Γάμος: Δημήτρης & Θεοδώρα</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --accent-color: #d4af37;
-            --bg-color: #fcfcfc;
-            --text-color: #444;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Προσκλητήριο Γάμου</title>
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f8f8f8;
+    color: #333;
+    text-align: center;
+}
 
-        .invitation-card {
-            max-width: 500px;
-            width: 90%;
-            padding: 40px 20px;
-            background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
-            margin: 20px auto;
-            position: relative;
-        }
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
 
-        .invitation-card::before {
-            content: "";
-            position: absolute;
-            top: 10px; left: 10px; right: 10px; bottom: 10px;
-            border: 1px solid var(--accent-color);
-            pointer-events: none;
-            opacity: 0.3;
-        }
+h1 {
+    font-size: 42px;
+    margin: 10px 0;
+}
 
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
+h2 {
+    font-weight: normal;
+    color: #777;
+}
 
-        .and {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.5rem;
-            color: var(--accent-color);
-            display: block;
-            margin: 10px 0;
-        }
+.section {
+    margin: 40px 0;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
 
-        .date-box {
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            padding: 15px 0;
-            margin: 30px 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
+.quote {
+    font-style: italic;
+    font-size: 18px;
+    color: #555;
+}
 
-        .details {
-            line-height: 1.8;
-            margin-bottom: 30px;
-        }
+.countdown {
+    font-size: 28px;
+    margin-top: 10px;
+    color: #b48a78;
+}
 
-        .details strong {
-            display: block;
-            color: var(--primary-color);
-            margin-top: 15px;
-        }
+button {
+    background: #b48a78;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            margin-top: 10px;
-            transition: background 0.3s;
-        }
+button:hover {
+    background: #9c7464;
+}
 
-        .btn:hover {
-            background-color: var(--accent-color);
-        }
+input, textarea {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
 
-        .rsvp {
-            font-size: 0.85rem;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px dotted #ccc;
-        }
-
-        .contact-info {
-            margin-top: 10px;
-            font-style: normal;
-        }
-
-        .image-placeholder {
-            width: 100%;
-            height: 250px;
-            background: #f0f0f0;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        .image-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
-        }
-    </style>
+.footer {
+    font-size: 14px;
+    color: #777;
+    margin-top: 30px;
+}
+</style>
 </head>
+
 <body>
 
-    <div class="invitation-card">
-        <div class="image-placeholder">
-            <img src="https://via.placeholder.com/500x300?text=Δημήτρης+%26+Θεοδώρα" alt="Wedding Photo">
-        </div>
+<div class="container">
 
-        <p>Με μεγάλη χαρά σας προσκαλούμε στον γάμο μας</p>
-        
-        <h1>Δημήτρης <span class="and">&</span> Θεοδώρα</h1>
-
-        <div class="date-box">
-            Κυριακή 19 Ιουλίου | 19:00
-        </div>
-
-        <div class="details">
-            <strong>Μυστήριο</strong>
-            Ιερός Ναός Αγίου Βασιλείου<br>
-            Νέας Ελβετίας, Θεσσαλονίκη
-            <br>
-            <a href="https://www.google.com/maps/search/?api=1&query=Ιερός+Ναός+Αγίου+Βασιλείου+Νέας+Ελβετίας+Θεσσαλονίκη" target="_blank" class="btn">Δείτε τον Χάρτη</a>
-
-            <strong>Δεξίωση</strong>
-            Grand Chateau<br>
-            Χορτιάτης, Θεσσαλονίκη
-            <br>
-            <a href="https://www.google.com/maps/search/?api=1&query=Grand+Chateau+Hortiatis" target="_blank" class="btn">Τοποθεσία Δεξίωσης</a>
-        </div>
-
-        <div class="rsvp">
-            <p>Παρακαλούμε για την ενημέρωση της παρουσίας σας</p>
-            <div class="contact-info">
-                Δημήτρης: <a href="tel:6909064339">6909064339</a><br>
-                Θεοδώρα: <a href="tel:6988592475">6988592475</a>
-            </div>
-        </div>
+    <div class="section">
+        <p class="quote">Οὓς ὁ Θεὸς συνέζευξεν, ἄνθρωπος μὴ χωριζέτω</p>
+        <h1>Δημήτρης & Θεοδώρα</h1>
+        <h2>19 Ιουλίου • 19:00</h2>
+        <div class="countdown" id="countdown"></div>
     </div>
+
+    <div class="section">
+        <h2>Τελετή</h2>
+        <p>Ιερός Ναός Αγίου Βασιλείου<br>Νέας Ελβετίας, Θεσσαλονίκη</p>
+        <button onclick="window.open('https://www.google.com/maps/search/?api=1&query=Ιερός+Ναός+Αγίου+Βασιλείου+Νέας+Ελβετίας+Θεσσαλονίκη')">
+            Οδηγίες
+        </button>
+    </div>
+
+    <div class="section">
+        <h2>Δεξίωση</h2>
+        <p>Grand Chateu<br>Χορτιάτης, Θεσσαλονίκη</p>
+        <button onclick="window.open('https://www.google.com/maps/search/?api=1&query=Grand+Chateu+Χορτιάτης+Θεσσαλονίκη')">
+            Οδηγίες
+        </button>
+    </div>
+
+    <div class="section">
+        <h2>Κουμπάρα</h2>
+        <p>Αγγελίδου Μαρίζα</p>
+    </div>
+
+    <div class="section">
+        <h2>Δωρεές Γάμου</h2>
+        <p>Η παρουσία σας είναι το πιο πολύτιμο δώρο. Εάν επιθυμείτε να συνεισφέρετε:</p>
+        <p><strong>IBAN:</strong> GR00 0000 0000 0000 0000 0000 000</p>
+    </div>
+
+    <div class="section">
+        <h2>RSVP</h2>
+        <p>Θα χαρούμε πολύ να σας δούμε.<br>Ενημερώστε μας για την παρουσία σας έως 25 Ιουνίου.</p>
+
+        <form>
+            <input type="text" placeholder="Όνομα" required><br>
+            <input type="number" placeholder="Αριθμός ατόμων" required><br>
+            <textarea placeholder="Μήνυμα (προαιρετικό)"></textarea><br>
+            <button type="submit">Αποστολή</button>
+        </form>
+    </div>
+
+    <div class="section">
+        <h2>Επικοινωνία</h2>
+        <p>Δημήτρης Κασιάρας - 6909064339</p>
+        <p>Θεοδώρα Αποστολίγου - 6988592475</p>
+    </div>
+
+    <div class="footer">
+        Με αγάπη σας περιμένουμε ❤️
+    </div>
+
+</div>
+
+<script>
+// Countdown
+const weddingDate = new Date("July 19, 2026 19:00:00").getTime();
+
+const countdownFunction = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((distance / (1000 * 60)) % 60);
+
+    document.getElementById("countdown").innerHTML =
+        days + " ημέρες " + hours + " ώρες " + minutes + " λεπτά";
+
+    if (distance < 0) {
+        clearInterval(countdownFunction);
+        document.getElementById("countdown").innerHTML = "Σήμερα είναι η μεγάλη μέρα!";
+    }
+}, 1000);
+</script>
 
 </body>
 </html>
