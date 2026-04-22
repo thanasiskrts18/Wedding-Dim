@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --primary: #4a5d4e; /* Σταχτί πράσινο */
-            --accent: #8fa18f;  /* Απαλό φασκόμηλο */
+            --primary: #4a5d4e; 
+            --accent: #8fa18f;  
             --text: #555555;
-            --bg-light: #f4f7f4; /* Πολύ απαλό πράσινο φόντο */
+            --bg-light: #f4f7f4; 
             --white: #ffffff;
             --soft-green: #e8eee8; 
         }
@@ -25,13 +25,13 @@
             color: var(--text);
             line-height: 1.8;
             background-color: var(--white);
-            scroll-behavior: smooth;
         }
 
         h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--primary); font-weight: 400; }
         .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
         section { padding: 60px 0; text-align: center; }
 
+        /* Fade out effect on scroll */
         .hero {
             height: 100vh;
             display: flex;
@@ -41,6 +41,17 @@
             background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), 
                         url('https://images.unsplash.com/photo-1510076857177-7470076d4098?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
             padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: -1;
+            transition: opacity 0.2s ease-out;
+        }
+
+        .main-content {
+            background: var(--white);
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
         }
 
         .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 10px; color: var(--primary); }
@@ -52,22 +63,40 @@
         .timer-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; }
 
         .card { background: white; padding: 35px; border-radius: 12px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); margin-bottom: 25px; border-top: 4px solid var(--accent); }
-        .btn { display: inline-block; padding: 12px 25px; background: var(--accent); color: white; text-decoration: none; border-radius: 25px; margin-top: 15px; transition: 0.3s; border: none; cursor: pointer; font-size: 1rem; }
+        .btn { display: inline-block; padding: 12px 25px; background: var(--accent); color: white !important; text-decoration: none; border-radius: 25px; margin-top: 15px; transition: 0.3s; border: none; cursor: pointer; font-size: 1rem; }
         .btn:hover { background: var(--primary); }
 
         .bank-info { background: #f9fbf9; border: 1px dashed var(--accent); padding: 20px; margin-top: 20px; text-align: left; }
         .iban { font-family: monospace; display: block; padding: 10px; background: #f0f4f0; margin-top: 10px; word-break: break-all; border-radius: 5px; border: 1px solid var(--soft-green); }
 
         .call-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
-        .btn-call { background: var(--primary); font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+        .btn-call { background: var(--primary); font-size: 0.9rem; display: flex; align-items: center; gap: 8px; position: relative; }
 
-        .family-info { margin-bottom: 30px; font-size: 1.1rem; }
+        /* Tooltip για την αντιγραφή */
+        .btn-call::after {
+            content: "Αντιγράφηκε!";
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: 0.3s;
+            pointer-events: none;
+        }
+        .btn-call.copied::after { opacity: 1; }
+
+        .intro-text { font-style: italic; font-size: 1.1rem; margin-bottom: 25px; color: var(--primary); max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5; }
         footer { padding: 40px; background: var(--soft-green); text-align: center; }
     </style>
 </head>
 <body>
 
-    <section class="hero">
+    <section class="hero" id="hero">
         <p style="font-style: italic; margin-bottom: 20px; font-size: 1.2rem; color: var(--primary);">«Ἀνάλαβε τούς στεφάνους αὐτῶν ἐν τῇ Βασιλείᾳ σου»</p>
         <h1>Δημήτρης & Θεοδώρα</h1>
         <p class="date">19 Ιουλίου 2026</p>
@@ -80,77 +109,85 @@
         </div>
     </section>
 
-    <section style="background: var(--bg-light);">
-        <div class="container">
-            <div class="family-info">
-                <h3>Οι Οικογένειες</h3>
-                <p>Λουκά - Τατιανής Κασιάρα</p>
-                <p>Αναστασίου - Τριάδας Αποστολίδη</p>
-            </div>
+    <div class="main-content">
+        <section style="background: var(--bg-light);">
+            <div class="container">
+                <p class="intro-text">"Θα είναι μεγάλη μας χαρά η παρουσία σας και η συμπροσευχή σας σε αυτή την Ιερή για μας στιγμή"</p>
+                
+                <div class="card" style="max-width: 600px; margin: 0 auto 40px auto; border-top: 4px solid var(--primary);">
+                    <h3>Οι Οικογένειες</h3>
+                    <p style="margin-top: 10px;">Λουκά - Τατιανής Κασιάρα</p>
+                    <p>Αναστασίου - Τριάδας Αποστολίδη</p>
+                </div>
 
-            <h2 style="margin: 40px 0;">Το Μυστήριο & Η Δεξίωση</h2>
-            
-            <div class="card">
-                <i class="fa-solid fa-church" style="font-size: 2rem; color: var(--accent);"></i>
-                <h3 style="margin: 15px 0;">Το Μυστήριο</h3>
-                <p>Ιερός Ναός Αγίου Βασιλείου</p>
-                <p>Νέα Ελβετία, Θεσσαλονίκη</p>
-                <p><strong>Ώρα: 19:00</strong></p>
-                <a href="https://maps.google.com" target="_blank" class="btn">Οδηγίες Χάρτη</a>
-            </div>
+                <h2 style="margin: 40px 0;">Το Μυστήριο & Η Δεξίωση</h2>
+                
+                <div class="card">
+                    <i class="fa-solid fa-church" style="font-size: 2rem; color: var(--accent);"></i>
+                    <h3 style="margin: 15px 0;">Το Μυστήριο</h3>
+                    <p>Ιερός Ναός Αγίου Βασιλείου</p>
+                    <p>Νέα Ελβετία, Θεσσαλονίκη</p>
+                    <p><strong>Ώρα: 19:00</strong></p>
+                    <a href="https://maps.app.goo.gl/example" target="_blank" class="btn">Οδηγίες Χάρτη</a>
+                </div>
 
-            <div class="card">
-                <i class="fa-solid fa-champagne-glasses" style="font-size: 2rem; color: var(--accent);"></i>
-                <h3 style="margin: 15px 0;">Η Δεξίωση</h3>
-                <p>Bon Chateau</p>
-                <p>Χορτιάτης, Θεσσαλονίκη</p>
-                <a href="https://maps.google.com" target="_blank" class="btn">Οδηγίες Χάρτη</a>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <div class="card" style="border-top: 4px solid var(--primary);">
-                <i class="fa-solid fa-heart" style="font-size: 2rem; color: var(--accent); margin-bottom: 10px;"></i>
-                <h2>Η Κουμπάρα μας</h2>
-                <p style="font-size: 1.4rem; color: var(--primary); letter-spacing: 2px; margin-top: 15px; font-weight: 600;">ΜΑΡΙΖΑ ΑΓΓΕΛΙΔΟΥ</p>
-            </div>
-        </div>
-    </section>
-
-    <section style="background: var(--bg-light);">
-        <div class="container">
-            <h2>Προαιρετική Λίστα Γάμου</h2>
-            <div class="card" style="max-width: 600px; margin: 30px auto;">
-                <p>Η παρουσία σας είναι το μεγαλύτερο δώρο για εμάς. Αν επιθυμείτε να μας χαρίσετε κάτι, θα χαρούμε να το κάνετε μέσω:</p>
-                <div class="bank-info">
-                    <p><strong>Τράπεζα:</strong> Εθνική Τράπεζα</p>
-                    <p><strong>Δικαιούχοι:</strong> Δημήτριος Κασιάρας - Θεοδώρα Αποστολίδη</p>
-                    <span class="iban">GR9501102230000022301012658</span>
-                    <p style="margin-top: 15px;"><strong>IRIS Payments:</strong></p>
-                    <span class="iban">6909064339</span>
+                <div class="card">
+                    <i class="fa-solid fa-champagne-glasses" style="font-size: 2rem; color: var(--accent);"></i>
+                    <h3 style="margin: 15px 0;">Η Δεξίωση</h3>
+                    <p>Bon Chateau</p>
+                    <p>Χορτιάτης, Θεσσαλονίκη</p>
+                    <a href="https://maps.app.goo.gl/example2" target="_blank" class="btn">Οδηγίες Χάρτη</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
-        <div class="container">
-            <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Επικοινωνία</h3>
-            <div class="call-buttons">
-                <a href="tel:6909064339" class="btn btn-call"><i class="fa-solid fa-phone"></i> Δημήτριος</a>
-                <a href="tel:6988592475" class="btn btn-call"><i class="fa-solid fa-phone"></i> Θεοδώρα</a>
+        <section>
+            <div class="container">
+                <div class="card" style="border-top: 4px solid var(--primary);">
+                    <i class="fa-solid fa-heart" style="font-size: 2rem; color: var(--accent); margin-bottom: 10px;"></i>
+                    <h2>Η Κουμπάρα μας</h2>
+                    <p style="font-size: 1.4rem; color: var(--primary); letter-spacing: 2px; margin-top: 15px; font-weight: 600;">ΜΑΡΙΖΑ ΑΓΓΕΛΙΔΟΥ</p>
+                </div>
             </div>
-        </div>
-    </footer>
+        </section>
+
+        <section style="background: var(--bg-light);">
+            <div class="container">
+                <h2>Προαιρετική Λίστα Γάμου</h2>
+                <div class="card" style="max-width: 600px; margin: 30px auto;">
+                    <p>Η παρουσία σας είναι το μεγαλύτερο δώρο για εμάς. Αν επιθυμείτε να μας χαρίσετε κάτι, θα χαρούμε να το κάνετε μέσω:</p>
+                    <div class="bank-info">
+                        <p><strong>Τράπεζα:</strong> Εθνική Τράπεζα</p>
+                        <p><strong>Δικαιούχοι:</strong> Δημήτριος Κασιάρας - Θεοδώρα Αποστολίδη</p>
+                        <span class="iban">GR9501102230000022301012658</span>
+                        <p style="margin-top: 15px;"><strong>IRIS Payments:</strong></p>
+                        <span class="iban">6909064339</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Επικοινωνία</h3>
+                <div class="call-buttons">
+                    <button onclick="handlePhoneClick('6909064339', this)" class="btn btn-call">
+                        <i class="fa-solid fa-phone"></i> Δημήτριος
+                    </button>
+                    <button onclick="handlePhoneClick('6988592475', this)" class="btn btn-call">
+                        <i class="fa-solid fa-phone"></i> Θεοδώρα
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
 
     <script>
+        // Αντίστροφη μέτρηση
         const weddingDate = new Date("July 19, 2026 19:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
             const diff = weddingDate - now;
-            
             if (diff > 0) {
                 document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
                 document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
@@ -158,6 +195,32 @@
                 document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
             }
         }, 1000);
+
+        // Fade out effect στο scroll
+        window.addEventListener('scroll', function() {
+            const hero = document.getElementById('hero');
+            let scrollPos = window.scrollY;
+            let opacity = 1 - (scrollPos / 500); // Το fade ολοκληρώνεται στα 500px scroll
+            if (opacity >= 0) {
+                hero.style.opacity = opacity;
+            } else {
+                hero.style.opacity = 0;
+            }
+        });
+
+        // Διαχείριση κλήσης / αντιγραφής
+        function handlePhoneClick(number, btn) {
+            // Αν είναι κινητό (απλή ανίχνευση touch)
+            if ('ontouchstart' in window) {
+                window.location.href = "tel:" + number;
+            } else {
+                // Αν είναι υπολογιστής, αντιγραφή στο πρόχειρο
+                navigator.clipboard.writeText(number).then(() => {
+                    btn.classList.add('copied');
+                    setTimeout(() => btn.classList.remove('copied'), 2000);
+                });
+            }
+        }
     </script>
 </body>
 </html>
