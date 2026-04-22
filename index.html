@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --primary: #855c0a; /* Σκούρο καφέ/χρυσό για κείμενο */
-            --accent: #f39c12;  /* Ζεστό πορτοκαλί */
-            --text: #4a4a4a;
-            --bg-light: #fffdf5; /* Κρεμέ */
+            --primary: #4a5d4e; /* Σταχτί πράσινο */
+            --accent: #8fa18f;  /* Απαλό φασκόμηλο */
+            --text: #555555;
+            --bg-light: #f4f7f4; /* Πολύ απαλό πράσινο φόντο */
             --white: #ffffff;
-            --soft-yellow: #fef9e7; /* Απαλό κίτρινο */
+            --soft-green: #e8eee8; 
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,7 +30,7 @@
 
         h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--primary); font-weight: 400; }
         .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-        section { padding: 80px 0; text-align: center; }
+        section { padding: 60px 0; text-align: center; }
 
         .hero {
             height: 100vh;
@@ -38,35 +38,37 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), 
+            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), 
                         url('https://images.unsplash.com/photo-1510076857177-7470076d4098?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
             padding: 20px;
         }
 
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 10px; color: #d35400; }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 10px; color: var(--primary); }
         .date { font-size: 1.3rem; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); }
 
         .timer-wrap { display: flex; justify-content: center; gap: 15px; margin-top: 40px; flex-wrap: wrap; }
-        .timer-box { background: white; padding: 15px; min-width: 85px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid var(--soft-yellow); }
+        .timer-box { background: white; padding: 15px; min-width: 85px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border: 1px solid var(--soft-green); }
         .timer-num { display: block; font-size: 2rem; color: var(--accent); font-family: 'Playfair Display', serif; }
         .timer-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; }
 
         .card { background: white; padding: 35px; border-radius: 12px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); margin-bottom: 25px; border-top: 4px solid var(--accent); }
-        .btn { display: inline-block; padding: 12px 25px; background: var(--accent); color: white; text-decoration: none; border-radius: 25px; margin-top: 15px; transition: 0.3s; }
+        .btn { display: inline-block; padding: 12px 25px; background: var(--accent); color: white; text-decoration: none; border-radius: 25px; margin-top: 15px; transition: 0.3s; border: none; cursor: pointer; font-size: 1rem; }
         .btn:hover { background: var(--primary); }
 
-        .bank-info { background: #fffcf0; border: 1px dashed var(--accent); padding: 20px; margin-top: 20px; text-align: left; }
-        .iban { font-family: monospace; display: block; padding: 10px; background: #fdf2e9; margin-top: 10px; word-break: break-all; border-radius: 5px; border: 1px solid #fae5d3; }
+        .bank-info { background: #f9fbf9; border: 1px dashed var(--accent); padding: 20px; margin-top: 20px; text-align: left; }
+        .iban { font-family: monospace; display: block; padding: 10px; background: #f0f4f0; margin-top: 10px; word-break: break-all; border-radius: 5px; border: 1px solid var(--soft-green); }
+
+        .call-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+        .btn-call { background: var(--primary); font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
 
         .family-info { margin-bottom: 30px; font-size: 1.1rem; }
-
-        footer { padding: 40px; background: var(--soft-yellow); text-align: center; border-top: 1px solid #f9e79f; }
+        footer { padding: 40px; background: var(--soft-green); text-align: center; }
     </style>
 </head>
 <body>
 
     <section class="hero">
-        <p style="font-style: italic; margin-bottom: 20px; font-size: 1.2rem; color: #845a05;">«Ἀνάλαβε τούς στεφάνους αὐτῶν ἐν τῇ Βασιλείᾳ σου»</p>
+        <p style="font-style: italic; margin-bottom: 20px; font-size: 1.2rem; color: var(--primary);">«Ἀνάλαβε τούς στεφάνους αὐτῶν ἐν τῇ Βασιλείᾳ σου»</p>
         <h1>Δημήτρης & Θεοδώρα</h1>
         <p class="date">19 Ιουλίου 2026</p>
 
@@ -90,11 +92,11 @@
             
             <div class="card">
                 <i class="fa-solid fa-church" style="font-size: 2rem; color: var(--accent);"></i>
-                <h3 style="margin: 15px 0;">Η Τελετή</h3>
+                <h3 style="margin: 15px 0;">Το Μυστήριο</h3>
                 <p>Ιερός Ναός Αγίου Βασιλείου</p>
                 <p>Νέα Ελβετία, Θεσσαλονίκη</p>
                 <p><strong>Ώρα: 19:00</strong></p>
-                <a href="https://maps.app.goo.gl/pu44zniCZAhMLC5CA?g_st=ic" target="_blank" class="btn">Οδηγίες Χάρτη</a>
+                <a href="https://maps.google.com" target="_blank" class="btn">Οδηγίες Χάρτη</a>
             </div>
 
             <div class="card">
@@ -102,25 +104,28 @@
                 <h3 style="margin: 15px 0;">Η Δεξίωση</h3>
                 <p>Bon Chateau</p>
                 <p>Χορτιάτης, Θεσσαλονίκη</p>
-                <a href="https://maps.app.goo.gl/zMxuuLaafWKAV3gR8?g_st=ic" target="_blank" class="btn">Οδηγίες Χάρτη</a>
+                <a href="https://maps.google.com" target="_blank" class="btn">Οδηγίες Χάρτη</a>
             </div>
         </div>
     </section>
 
     <section>
         <div class="container">
-            <h2>Η Κουμπάρα μας</h2>
-            <p style="font-size: 1.4rem; color: var(--accent); letter-spacing: 2px; margin-top: 15px; font-weight: 600;">ΜΑΡΙΖΑ ΑΓΓΕΛΙΔΟΥ</p>
+            <div class="card" style="border-top: 4px solid var(--primary);">
+                <i class="fa-solid fa-heart" style="font-size: 2rem; color: var(--accent); margin-bottom: 10px;"></i>
+                <h2>Η Κουμπάρα μας</h2>
+                <p style="font-size: 1.4rem; color: var(--primary); letter-spacing: 2px; margin-top: 15px; font-weight: 600;">ΜΑΡΙΖΑ ΑΓΓΕΛΙΔΟΥ</p>
+            </div>
         </div>
     </section>
 
     <section style="background: var(--bg-light);">
         <div class="container">
-            <h2>Δωρεά Γάμου</h2>
+            <h2>Προαιρετική Λίστα Γάμου</h2>
             <div class="card" style="max-width: 600px; margin: 30px auto;">
                 <p>Η παρουσία σας είναι το μεγαλύτερο δώρο για εμάς. Αν επιθυμείτε να μας χαρίσετε κάτι, θα χαρούμε να το κάνετε μέσω:</p>
                 <div class="bank-info">
-                    <p><strong>Τράπεζα:</strong> Πειραιώς</p>
+                    <p><strong>Τράπεζα:</strong> Εθνική Τράπεζα</p>
                     <p><strong>Δικαιούχοι:</strong> Δημήτριος Κασιάρας - Θεοδώρα Αποστολίδη</p>
                     <span class="iban">GR9501102230000022301012658</span>
                     <p style="margin-top: 15px;"><strong>IRIS Payments:</strong></p>
@@ -133,8 +138,10 @@
     <footer>
         <div class="container">
             <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Επικοινωνία</h3>
-            <p>Δημήτριος: <strong>6909064339</strong></p>
-            <p>Θεοδώρα: <strong>6988592475</strong></p>
+            <div class="call-buttons">
+                <a href="tel:6909064339" class="btn btn-call"><i class="fa-solid fa-phone"></i> Δημήτριος</a>
+                <a href="tel:6988592475" class="btn btn-call"><i class="fa-solid fa-phone"></i> Θεοδώρα</a>
+            </div>
         </div>
     </footer>
 
