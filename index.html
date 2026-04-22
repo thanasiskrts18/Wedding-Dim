@@ -47,6 +47,14 @@
             background-color: #fff;
         }
 
+        /* Μετακίνηση περιεχομένου hero λίγο πιο ψηλά */
+        .hero-content {
+            margin-top: -50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .main-content {
             background: var(--white);
             position: relative;
@@ -62,7 +70,6 @@
         .timer-num { display: block; font-size: 1.5rem; color: var(--accent); font-family: 'Playfair Display', serif; }
         .timer-label { font-size: 0.6rem; font-weight: 600; text-transform: uppercase; }
 
-        /* Κοινό στυλ για όλα τα cards */
         .card { background: white; padding: 35px; border-radius: 12px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); margin-bottom: 25px; border-top: 4px solid var(--accent); }
         .card-primary { border-top: 4px solid var(--primary); }
         
@@ -93,32 +100,34 @@
 <body>
 
     <section class="hero" id="hero">
-        <p style="font-style: italic; margin-bottom: 20px; font-size: 1.2rem; color: var(--primary); background: rgba(255,255,255,0.5); padding: 5px 10px; border-radius: 5px;">«Ἀνάλαβε τούς στεφάνους αὐτῶν ἐν τῇ Βασιλείᾳ σου»</p>
-        <p class="date">19 Ιουλίου 2026</p>
-        <h1>Δημήτρης & Θεοδώρα</h1>
+        <div class="hero-content">
+            <p style="font-style: italic; margin-bottom: 20px; font-size: 1.2rem; color: var(--primary); background: rgba(255,255,255,0.5); padding: 5px 10px; border-radius: 5px;">«Ἀνάλαβε τούς στεφάνους αὐτῶν ἐν τῇ Βασιλείᾳ σου»</p>
+            <p class="date">19 Ιουλίου 2026</p>
+            <h1>Δημήτρης & Θεοδώρα</h1>
 
-        <div class="timer-wrap">
-            <div class="timer-box"><span class="timer-num" id="days">00</span><span class="timer-label">Ημέρες</span></div>
-            <div class="timer-box"><span class="timer-num" id="hours">00</span><span class="timer-label">Ώρες</span></div>
-            <div class="timer-box"><span class="timer-num" id="minutes">00</span><span class="timer-label">Λεπτά</span></div>
-            <div class="timer-box"><span class="timer-num" id="seconds">00</span><span class="timer-label">Δευτ.</span></div>
+            <div class="timer-wrap">
+                <div class="timer-box"><span class="timer-num" id="days">00</span><span class="timer-label">Ημέρες</span></div>
+                <div class="timer-box"><span class="timer-num" id="hours">00</span><span class="timer-label">Ώρες</span></div>
+                <div class="timer-box"><span class="timer-num" id="minutes">00</span><span class="timer-label">Λεπτά</span></div>
+                <div class="timer-box"><span class="timer-num" id="seconds">00</span><span class="timer-label">Δευτ.</span></div>
+            </div>
         </div>
     </section>
 
     <div class="main-content">
         <section style="background: var(--bg-light);">
             <div class="container">
-                <p class="intro-text">Θα είναι μεγάλη μας χαρά η παρουσία σας και η συμπροσευχή σας σε αυτή την Ιερή για μας στιγμή</p>
+                <p class="intro-text">Θα είναι μεγάλη μας χαρά, η παρουσία σας και η συμπροσευχή σας σε αυτή την Ιερή για μας στιγμή.</p>
                 
                 <div class="card card-primary">
                     <h3>Οι Οικογένειες</h3>
                     <p style="margin-top: 10px;">Λουκά - Τατιανής Κασιάρα</p>
-                    <p>Αναστασίου - Τριάδας Αποστολίδη</p>
+                    <p>Αναστασίου - Τριάδας Αποστολίδου</p>
                 </div>
 
                 <div class="card card-primary">
                     <h3>Η Κουμπάρα μας</h3>
-                    <p style="margin-top: 10px; font-weight: 600;">Μαρίζα Αγγελίδου</p>
+                    <p style="margin-top: 10px; font-weight: 400;">Μαρίζα Αγγελίδου</p>
                 </div>
 
                 <h2 style="margin: 40px 0;">Το Μυστήριο & Η Δεξίωση</h2>
@@ -129,7 +138,7 @@
                     <p>Ιερός Ναός Αγίου Βασιλείου</p>
                     <p>Νέα Ελβετία, Θεσσαλονίκη</p>
                     <p><strong>Ώρα: 19:00</strong></p>
-                    <a href="https://maps.google.com" target="_blank" class="btn">Οδηγίες Χάρτη</a>
+                    <a href="https://maps.app.goo.gl/0" target="_blank" class="btn">Οδηγίες Χάρτη</a>
                 </div>
 
                 <div class="card">
@@ -137,7 +146,7 @@
                     <h3 style="margin: 15px 0;">Η Δεξίωση</h3>
                     <p>Bon Chateau</p>
                     <p>Χορτιάτης, Θεσσαλονίκη</p>
-                    <a href="https://maps.google.com" target="_blank" class="btn">Οδηγίες Χάρτη</a>
+                    <a href="https://maps.app.goo.gl/1" target="_blank" class="btn">Οδηγίες Χάρτη</a>
                     <span class="rsvp-note">Παρακαλούμε να μας ενημερώσετε για τη παρουσία σας στη δεξίωση μέχρι τις 21 Ιουνίου.</span>
                 </div>
             </div>
