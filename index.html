@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --primary: #8e734b; /* Σταχί / Παλαιωμένο χρυσό */
-            --accent: #c5a368;  /* Χρώμα του σταριού */
+            --primary: #8e734b; 
+            --accent: #c5a368;  
             --text: #5a554e;
-            --bg-light: #f9f6f0; /* Κρεμ της άμμου */
+            --bg-light: #f9f6f0; 
             --white: #ffffff;
             --soft-wheat: #f1ede3; 
         }
@@ -37,13 +37,15 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), 
-                        url('https://images.unsplash.com/photo-1500382017468-9049fee74a62?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
+            /* ΕΔΩ ΜΠΑΙΝΕΙ Η ΦΩΤΟΓΡΑΦΙΑ ΣΟΥ */
+            background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), 
+                        url('wedding-bg.jpg') center/contain no-repeat;
             padding: 20px;
             position: sticky;
             top: 0;
             z-index: -1;
             transition: opacity 0.2s ease-out;
+            background-color: #fff; /* fallback color */
         }
 
         .main-content {
@@ -53,11 +55,11 @@
             box-shadow: 0 -10px 30px rgba(0,0,0,0.03);
         }
 
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 10px; color: var(--primary); }
-        .date { font-size: 1.3rem; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 10px; color: var(--primary); text-shadow: 1px 1px 2px rgba(255,255,255,0.8); }
+        .date { font-size: 1.3rem; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); font-weight: 600; }
 
         .timer-wrap { display: flex; justify-content: center; gap: 15px; margin-top: 40px; flex-wrap: wrap; }
-        .timer-box { background: white; padding: 15px; min-width: 85px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border: 1px solid var(--soft-wheat); }
+        .timer-box { background: rgba(255, 255, 255, 0.9); padding: 15px; min-width: 85px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border: 1px solid var(--soft-wheat); }
         .timer-num { display: block; font-size: 2rem; color: var(--accent); font-family: 'Playfair Display', serif; }
         .timer-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; }
 
@@ -88,7 +90,7 @@
 <body>
 
     <section class="hero" id="hero">
-        <p style="font-style: italic; margin-bottom: 20px; font-size: 1.2rem; color: var(--primary);">«Ἀνάλαβε τούς στεφάνους αὐτῶν ἐν τῇ Βασιλείᾳ σου»</p>
+        <p style="font-style: italic; margin-bottom: 20px; font-size: 1.2rem; color: var(--primary); background: rgba(255,255,255,0.5); padding: 5px 10px; border-radius: 5px;">«Ἀνάλαβε τούς στεφάνους αὐτῶν ἐν τῇ Βασιλείᾳ σου»</p>
         <h1>Δημήτρης & Θεοδώρα</h1>
         <p class="date">19 Ιουλίου 2026</p>
 
