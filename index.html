@@ -31,7 +31,6 @@
         .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
         section { padding: 60px 0; text-align: center; }
 
-        /* Fade out effect on scroll */
         .hero {
             height: 100vh;
             display: flex;
@@ -67,28 +66,21 @@
         .btn:hover { background: var(--primary); }
 
         .bank-info { background: #f9fbf9; border: 1px dashed var(--accent); padding: 20px; margin-top: 20px; text-align: left; }
-        .iban { font-family: monospace; display: block; padding: 10px; background: #f0f4f0; margin-top: 10px; word-break: break-all; border-radius: 5px; border: 1px solid var(--soft-green); }
+        .iban { font-family: monospace; display: block; padding: 10px; background: #f0f4f0; margin-top: 10px; word-break: break-all; border-radius: 5px; border: 1px solid var(--soft-green); cursor: pointer; position: relative; }
+        
+        /* Tooltip για την αντιγραφή IBAN/IRIS */
+        .iban::after {
+            content: "Κλικ για αντιγραφή";
+            position: absolute;
+            bottom: -25px;
+            right: 10px;
+            font-size: 0.7rem;
+            color: var(--accent);
+            opacity: 0.7;
+        }
 
         .call-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
         .btn-call { background: var(--primary); font-size: 0.9rem; display: flex; align-items: center; gap: 8px; position: relative; }
-
-        /* Tooltip για την αντιγραφή */
-        .btn-call::after {
-            content: "Αντιγράφηκε!";
-            position: absolute;
-            top: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #333;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.8rem;
-            opacity: 0;
-            transition: 0.3s;
-            pointer-events: none;
-        }
-        .btn-call.copied::after { opacity: 1; }
 
         .intro-text { font-style: italic; font-size: 1.1rem; margin-bottom: 25px; color: var(--primary); max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5; }
         footer { padding: 40px; background: var(--soft-green); text-align: center; }
@@ -112,9 +104,9 @@
     <div class="main-content">
         <section style="background: var(--bg-light);">
             <div class="container">
-                <p class="intro-text">"Θα είναι μεγάλη μας χαρά η παρουσία σας και η συμπροσευχή σας σε αυτή την Ιερή για μας στιγμή"</p>
+                <p class="intro-text">Θα είναι μεγάλη μας χαρά η παρουσία σας και η συμπροσευχή σας σε αυτή την Ιερή για μας στιγμή</p>
                 
-                <div class="card" style="max-width: 600px; margin: 0 auto 40px auto; border-top: 4px solid var(--primary);">
+                <div class="card" style="border-top: 4px solid var(--primary);">
                     <h3>Οι Οικογένειες</h3>
                     <p style="margin-top: 10px;">Λουκά - Τατιανής Κασιάρα</p>
                     <p>Αναστασίου - Τριάδας Αποστολίδη</p>
@@ -159,9 +151,9 @@
                     <div class="bank-info">
                         <p><strong>Τράπεζα:</strong> Εθνική Τράπεζα</p>
                         <p><strong>Δικαιούχοι:</strong> Δημήτριος Κασιάρας - Θεοδώρα Αποστολίδη</p>
-                        <span class="iban">GR9501102230000022301012658</span>
+                        <span class="iban" onclick="copyText(this)">GR9501102230000022301012658</span>
                         <p style="margin-top: 15px;"><strong>IRIS Payments:</strong></p>
-                        <span class="iban">6909064339</span>
+                        <span class="iban" onclick="copyText(this)">6909064339</span>
                     </div>
                 </div>
             </div>
@@ -183,7 +175,6 @@
     </div>
 
     <script>
-        // Αντίστροφη μέτρηση
         const weddingDate = new Date("July 19, 2026 19:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
@@ -196,11 +187,10 @@
             }
         }, 1000);
 
-        // Fade out effect στο scroll
         window.addEventListener('scroll', function() {
             const hero = document.getElementById('hero');
             let scrollPos = window.scrollY;
-            let opacity = 1 - (scrollPos / 500); // Το fade ολοκληρώνεται στα 500px scroll
+            let opacity = 1 - (scrollPos / 500); 
             if (opacity >= 0) {
                 hero.style.opacity = opacity;
             } else {
@@ -208,18 +198,29 @@
             }
         });
 
-        // Διαχείριση κλήσης / αντιγραφής
         function handlePhoneClick(number, btn) {
-            // Αν είναι κινητό (απλή ανίχνευση touch)
             if ('ontouchstart' in window) {
                 window.location.href = "tel:" + number;
             } else {
-                // Αν είναι υπολογιστής, αντιγραφή στο πρόχειρο
                 navigator.clipboard.writeText(number).then(() => {
-                    btn.classList.add('copied');
-                    setTimeout(() => btn.classList.remove('copied'), 2000);
+                    const originalText = btn.innerHTML;
+                    btn.innerHTML = "Αντιγράφηκε!";
+                    setTimeout(() => btn.innerHTML = originalText, 2000);
                 });
             }
+        }
+
+        function copyText(element) {
+            const text = element.innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = element.innerText;
+                element.innerText = "Αντιγράφηκε!";
+                element.style.color = "#2e7d32";
+                setTimeout(() => {
+                    element.innerText = originalText;
+                    element.style.color = "";
+                }, 2000);
+            });
         }
     </script>
 </body>
