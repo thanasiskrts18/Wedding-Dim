@@ -1,169 +1,156 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Προσκλητήριο Γάμου</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Γάμος Δημήτρης & Θεοδώρα</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #855c0a; /* Σκούρο καφέ/χρυσό για κείμενο */
+            --accent: #f39c12;  /* Ζεστό πορτοκαλί */
+            --text: #4a4a4a;
+            --bg-light: #fffdf5; /* Κρεμέ */
+            --white: #ffffff;
+            --soft-yellow: #fef9e7; /* Απαλό κίτρινο */
+        }
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #f8f8f8;
-    color: #333;
-    text-align: center;
-}
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
-.container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-}
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            line-height: 1.8;
+            background-color: var(--white);
+            scroll-behavior: smooth;
+        }
 
-h1 {
-    font-size: 42px;
-    margin: 10px 0;
-}
+        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--primary); font-weight: 400; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        section { padding: 80px 0; text-align: center; }
 
-h2 {
-    font-weight: normal;
-    color: #777;
-}
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), 
+                        url('https://images.unsplash.com/photo-1510076857177-7470076d4098?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
+            padding: 20px;
+        }
 
-.section {
-    margin: 40px 0;
-    padding: 20px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 10px; color: #d35400; }
+        .date { font-size: 1.3rem; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); }
 
-.quote {
-    font-style: italic;
-    font-size: 18px;
-    color: #555;
-}
+        .timer-wrap { display: flex; justify-content: center; gap: 15px; margin-top: 40px; flex-wrap: wrap; }
+        .timer-box { background: white; padding: 15px; min-width: 85px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid var(--soft-yellow); }
+        .timer-num { display: block; font-size: 2rem; color: var(--accent); font-family: 'Playfair Display', serif; }
+        .timer-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; }
 
-.countdown {
-    font-size: 28px;
-    margin-top: 10px;
-    color: #b48a78;
-}
+        .card { background: white; padding: 35px; border-radius: 12px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); margin-bottom: 25px; border-top: 4px solid var(--accent); }
+        .btn { display: inline-block; padding: 12px 25px; background: var(--accent); color: white; text-decoration: none; border-radius: 25px; margin-top: 15px; transition: 0.3s; }
+        .btn:hover { background: var(--primary); }
 
-button {
-    background: #b48a78;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    margin: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-}
+        .bank-info { background: #fffcf0; border: 1px dashed var(--accent); padding: 20px; margin-top: 20px; text-align: left; }
+        .iban { font-family: monospace; display: block; padding: 10px; background: #fdf2e9; margin-top: 10px; word-break: break-all; border-radius: 5px; border: 1px solid #fae5d3; }
 
-button:hover {
-    background: #9c7464;
-}
+        .family-info { margin-bottom: 30px; font-size: 1.1rem; }
 
-input, textarea {
-    width: 90%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-}
-
-.footer {
-    font-size: 14px;
-    color: #777;
-    margin-top: 30px;
-}
-</style>
+        footer { padding: 40px; background: var(--soft-yellow); text-align: center; border-top: 1px solid #f9e79f; }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
-
-    <div class="section">
-        <p class="quote">Οὓς ὁ Θεὸς συνέζευξεν, ἄνθρωπος μὴ χωριζέτω</p>
+    <section class="hero">
+        <p style="font-style: italic; margin-bottom: 20px; font-size: 1.2rem; color: #845a05;">«Ἀνάλαβε τούς στεφάνους αὐτῶν ἐν τῇ Βασιλείᾳ σου»</p>
         <h1>Δημήτρης & Θεοδώρα</h1>
-        <h2>19 Ιουλίου • 19:00</h2>
-        <div class="countdown" id="countdown"></div>
-    </div>
+        <p class="date">19 Ιουλίου 2026</p>
 
-    <div class="section">
-        <h2>Τελετή</h2>
-        <p>Ιερός Ναός Αγίου Βασιλείου<br>Νέας Ελβετίας, Θεσσαλονίκη</p>
-        <button onclick="window.open('https://www.google.com/maps/search/?api=1&query=Ιερός+Ναός+Αγίου+Βασιλείου+Νέας+Ελβετίας+Θεσσαλονίκη')">
-            Οδηγίες
-        </button>
-    </div>
+        <div class="timer-wrap">
+            <div class="timer-box"><span class="timer-num" id="days">00</span><span class="timer-label">Ημέρες</span></div>
+            <div class="timer-box"><span class="timer-num" id="hours">00</span><span class="timer-label">Ώρες</span></div>
+            <div class="timer-box"><span class="timer-num" id="minutes">00</span><span class="timer-label">Λεπτά</span></div>
+            <div class="timer-box"><span class="timer-num" id="seconds">00</span><span class="timer-label">Δευτ.</span></div>
+        </div>
+    </section>
 
-    <div class="section">
-        <h2>Δεξίωση</h2>
-        <p>Grand Chateu<br>Χορτιάτης, Θεσσαλονίκη</p>
-        <button onclick="window.open('https://www.google.com/maps/search/?api=1&query=Grand+Chateu+Χορτιάτης+Θεσσαλονίκη')">
-            Οδηγίες
-        </button>
-    </div>
+    <section style="background: var(--bg-light);">
+        <div class="container">
+            <div class="family-info">
+                <h3>Οι Οικογένειες</h3>
+                <p>Λουκά - Τατιανής Κασιάρα</p>
+                <p>Αναστασίου - Τριάδας Αποστολίδη</p>
+            </div>
 
-    <div class="section">
-        <h2>Κουμπάρα</h2>
-        <p>Αγγελίδου Μαρίζα</p>
-    </div>
+            <h2 style="margin: 40px 0;">Το Μυστήριο & Η Δεξίωση</h2>
+            
+            <div class="card">
+                <i class="fa-solid fa-church" style="font-size: 2rem; color: var(--accent);"></i>
+                <h3 style="margin: 15px 0;">Η Τελετή</h3>
+                <p>Ιερός Ναός Αγίου Βασιλείου</p>
+                <p>Νέα Ελβετία, Θεσσαλονίκη</p>
+                <p><strong>Ώρα: 19:00</strong></p>
+                <a href="https://maps.app.goo.gl/YourMapLink1" target="_blank" class="btn">Οδηγίες Χάρτη</a>
+            </div>
 
-    <div class="section">
-        <h2>Δωρεές Γάμου</h2>
-        <p>Η παρουσία σας είναι το πιο πολύτιμο δώρο. Εάν επιθυμείτε να συνεισφέρετε:</p>
-        <p><strong>IBAN:</strong> GR00 0000 0000 0000 0000 0000 000</p>
-    </div>
+            <div class="card">
+                <i class="fa-solid fa-champagne-glasses" style="font-size: 2rem; color: var(--accent);"></i>
+                <h3 style="margin: 15px 0;">Η Δεξίωση</h3>
+                <p>Bon Chateau</p>
+                <p>Χορτιάτης, Θεσσαλονίκη</p>
+                <a href="https://maps.app.goo.gl/YourMapLink2" target="_blank" class="btn">Οδηγίες Χάρτη</a>
+            </div>
+        </div>
+    </section>
 
-    <div class="section">
-        <h2>RSVP</h2>
-        <p>Θα χαρούμε πολύ να σας δούμε.<br>Ενημερώστε μας για την παρουσία σας έως 25 Ιουνίου.</p>
+    <section>
+        <div class="container">
+            <h2>Η Κουμπάρα μας</h2>
+            <p style="font-size: 1.4rem; color: var(--accent); letter-spacing: 2px; margin-top: 15px; font-weight: 600;">ΜΑΡΙΖΑ ΑΓΓΕΛΙΔΟΥ</p>
+        </div>
+    </section>
 
-        <form>
-            <input type="text" placeholder="Όνομα" required><br>
-            <input type="number" placeholder="Αριθμός ατόμων" required><br>
-            <textarea placeholder="Μήνυμα (προαιρετικό)"></textarea><br>
-            <button type="submit">Αποστολή</button>
-        </form>
-    </div>
+    <section style="background: var(--bg-light);">
+        <div class="container">
+            <h2>Δωρεά Γάμου</h2>
+            <div class="card" style="max-width: 600px; margin: 30px auto;">
+                <p>Η παρουσία σας είναι το μεγαλύτερο δώρο για εμάς. Αν επιθυμείτε να μας χαρίσετε κάτι, θα χαρούμε να το κάνετε μέσω:</p>
+                <div class="bank-info">
+                    <p><strong>Τράπεζα:</strong> Πειραιώς</p>
+                    <p><strong>Δικαιούχοι:</strong> Δημήτριος Κασιάρας - Θεοδώρα Αποστολίδη</p>
+                    <span class="iban">GR9501102230000022301012658</span>
+                    <p style="margin-top: 15px;"><strong>IRIS Payments:</strong></p>
+                    <span class="iban">6909064339</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="section">
-        <h2>Επικοινωνία</h2>
-        <p>Δημήτρης Κασιάρας - 6909064339</p>
-        <p>Θεοδώρα Αποστολίγου - 6988592475</p>
-    </div>
+    <footer>
+        <div class="container">
+            <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Επικοινωνία</h3>
+            <p>Δημήτριος: <strong>6909064339</strong></p>
+            <p>Θεοδώρα: <strong>6988592475</strong></p>
+        </div>
+    </footer>
 
-    <div class="footer">
-        Με αγάπη σας περιμένουμε ❤️
-    </div>
-
-</div>
-
-<script>
-// Countdown
-const weddingDate = new Date("July 19, 2026 19:00:00").getTime();
-
-const countdownFunction = setInterval(function() {
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((distance / (1000 * 60)) % 60);
-
-    document.getElementById("countdown").innerHTML =
-        days + " ημέρες " + hours + " ώρες " + minutes + " λεπτά";
-
-    if (distance < 0) {
-        clearInterval(countdownFunction);
-        document.getElementById("countdown").innerHTML = "Σήμερα είναι η μεγάλη μέρα!";
-    }
-}, 1000);
-</script>
-
+    <script>
+        const weddingDate = new Date("July 19, 2026 19:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = weddingDate - now;
+            
+            if (diff > 0) {
+                document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
