@@ -37,9 +37,14 @@
             flex-direction: column;
             justify-content: space-between; 
             align-items: center;
-            /* Διπλό background: Το wedding.jpg κεντραρισμένο και το wedding-backround.jpg από πίσω σε επανάληψη */
-            background: url('wedding.jpg') center / contain no-repeat,
-                        url('wedding-backround.jpg') left top repeat;
+            /* Ορισμός διπλού background: 
+               1. Η κεντρική εικόνα (wedding.jpg) σταθερή στο κέντρο.
+               2. Η εικόνα φόντου (wedding-backround.jpg) να επαναλαμβάνεται από πίσω. */
+            background-image: url('wedding.jpg'), url('wedding-backround.jpg');
+            background-position: center center, left top;
+            background-size: contain, auto;
+            background-repeat: no-repeat, repeat;
+            
             padding: 60px 20px; 
             position: sticky;
             top: 0;
