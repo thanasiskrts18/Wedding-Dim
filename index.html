@@ -39,7 +39,7 @@
             align-items: center;
             background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), 
                         url('wedding.jpg') center/contain no-repeat;
-            padding: 10px 20px 60px 20px; /* Περισσότερο padding πάνω-κάτω */
+            padding: 60px 20px; /* Περισσότερο padding πάνω-κάτω */
             position: sticky;
             top: 0;
             z-index: -1;
@@ -47,12 +47,17 @@
             background-color: #d8c8b0;
         }
 
-        /* Τα ονόματα και η ημερομηνία και η αντίστροφη μέτρηση στο πάνω μέρος */
+        /* Τα ονόματα και η ημερομηνία στο πάνω μέρος */
         .hero-top {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 0px;
+            margin-top: 10px;
+        }
+
+        /* Η αντίστροφη μέτρηση στο κάτω μέρος */
+        .hero-bottom {
+            margin-bottom: 20px;
         }
 
         .main-content {
@@ -101,9 +106,12 @@
 
     <section class="hero" id="hero">
         <div class="hero-top">
-            <p style="font-style: italic; margin-bottom: 5px; font-size: 1rem; color: var(--primary); background: rgba(255,255,255,0.5); padding: 4px 10px; border-radius: 5px;">«Ἀνάλαβε τούς στεφάνους αὐτῶν ἐν τῇ Βασιλείᾳ σου»</p>
+            <p style="font-style: italic; margin-bottom: 15px; font-size: 1.1rem; color: var(--primary); background: rgba(255,255,255,0.5); padding: 4px 10px; border-radius: 5px;">«Ἀνάλαβε τούς στεφάνους αὐτῶν ἐν τῇ Βασιλείᾳ σου»</p>
             <p class="date">19 Ιουλίου 2026</p>
-            <h3 style="font-size: 2.2rem;">Δημήτρης & Θεοδώρα</h3>
+            <h1>Δημήτρης & Θεοδώρα</h1>
+        </div>
+
+        <div class="hero-bottom">
             <div class="timer-wrap">
                 <div class="timer-box"><span class="timer-num" id="days">00</span><span class="timer-label">Ημέρες</span></div>
                 <div class="timer-box"><span class="timer-num" id="hours">00</span><span class="timer-label">Ώρες</span></div>
