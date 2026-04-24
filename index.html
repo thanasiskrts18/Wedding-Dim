@@ -35,11 +35,11 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: space-between; /* Μοιράζει το περιεχόμενο πάνω και κάτω */
             align-items: center;
-            background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), 
+            background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), 
                         url('wedding.jpg') center/contain no-repeat;
-            padding: 60px 20px;
+            padding: 60px 20px; /* Περισσότερο padding πάνω-κάτω */
             position: sticky;
             top: 0;
             z-index: -1;
@@ -47,6 +47,7 @@
             background-color: #fff;
         }
 
+        /* Τα ονόματα και η ημερομηνία στο πάνω μέρος */
         .hero-top {
             display: flex;
             flex-direction: column;
@@ -54,6 +55,7 @@
             margin-top: 10px;
         }
 
+        /* Η αντίστροφη μέτρηση στο κάτω μέρος */
         .hero-bottom {
             margin-bottom: 20px;
         }
@@ -69,9 +71,8 @@
         .date { font-size: 1rem; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 5px; }
 
         .timer-wrap { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-        .timer-box { background: rgba(255, 255, 255, 0.9); padding: 8px; min-width: 65px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border: 1px solid var(--soft-wheat); }
-        /* Χρώμα ίδιο με τα γράμματα Δ Θ στα στεφάνια */
-        .timer-num { display: block; font-size: 1.3rem; color: var(--primary); font-family: 'Playfair Display', serif; font-weight: bold; }
+        .timer-box { background: rgba(255, 255, 255, 0.85); padding: 8px; min-width: 65px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border: 1px solid var(--soft-wheat); }
+        .timer-num { display: block; font-size: 1.3rem; color: var(--accent); font-family: 'Playfair Display', serif; }
         .timer-label { font-size: 0.55rem; font-weight: 600; text-transform: uppercase; }
 
         .card { background: white; padding: 35px; border-radius: 12px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); margin-bottom: 25px; border-top: 4px solid var(--accent); }
@@ -110,7 +111,6 @@
             <h1>Δημήτρης & Θεοδώρα</h1>
         </div>
 
-        <!-- Η αντίστροφη μέτρηση κάτω από το χέρι -->
         <div class="hero-bottom">
             <div class="timer-wrap">
                 <div class="timer-box"><span class="timer-num" id="days">00</span><span class="timer-label">Ημέρες</span></div>
@@ -124,8 +124,7 @@
     <div class="main-content">
         <section style="background: var(--bg-light);">
             <div class="container">
-                <!-- Νέο Κείμενο Εισαγωγής -->
-                <p class="intro-text">Η παρουσία σας και οι προσευχές σας θα κάνουν την χαρά μας γιορτή.</p>
+                <p class="intro-text">Θα είναι μεγάλη μας χαρά, η παρουσία σας και η συμπροσευχή σας σε αυτή την Ιερή για μας στιγμή.</p>
                 
                 <div class="card card-primary">
                     <h3>Οι Οικογένειες</h3>
@@ -141,3 +140,104 @@
                 <h2 style="margin: 40px 0;">Το Μυστήριο & Η Δεξίωση</h2>
                 
                 <div class="card">
+                    <i class="fa-solid fa-church" style="font-size: 2rem; color: var(--accent);"></i>
+                    <h3 style="margin: 15px 0;">Το Μυστήριο</h3>
+                    <p>Ιερός Ναός Αγίου Βασιλείου</p>
+                    <p>Νέα Ελβετία, Θεσσαλονίκη</p>
+                    <p><strong>Ώρα: 19:00</strong></p>
+                    <a href="https://maps.app.goo.gl/pu44zniCZAhMLC5CA?g_st=ic" target="_blank" class="btn">Οδηγίες Χάρτη</a>
+                </div>
+
+                <div class="card">
+                    <i class="fa-solid fa-champagne-glasses" style="font-size: 2rem; color: var(--accent);"></i>
+                    <h3 style="margin: 15px 0;">Η Δεξίωση</h3>
+                    <p>Bon Chateau</p>
+                    <p>Ωραιόκαστρο, Θεσσαλονίκη</p>
+                    <a href="https://maps.app.goo.gl/zMxuuLaafWKAV3gR8?g_st=ic" target="_blank" class="btn">Οδηγίες Χάρτη</a>
+                    <span class="rsvp-note">Παρακαλούμε να μας ενημερώσετε για τη παρουσία σας στη δεξίωση μέχρι τις 21 Ιουνίου.</span>
+                </div>
+            </div>
+        </section>
+
+        <section style="background: var(--white);">
+            <div class="container">
+                <h2>Προαιρετική Λίστα Γάμου</h2>
+                <div class="card" style="max-width: 600px; margin: 30px auto;">
+                    <p>Η παρουσία σας είναι το μεγαλύτερο δώρο για εμάς. Αν επιθυμείτε να μας χαρίσετε κάτι, θα χαρούμε να το κάνετε μέσω:</p>
+                    <div class="bank-info">
+                        <p><strong>Τράπεζα:</strong> Εθνική Τράπεζα</p>
+                        <p><strong>Δικαιούχοι:</strong> Δημήτριος Κασιάρας - Θεοδώρα Αποστολίδου</p>
+                        <span class="iban" onclick="copyText(this)">GR9501102230000022301012658</span>
+                        <p style="margin-top: 15px;"><strong>IRIS Payments:</strong></p>
+                        <span class="iban" onclick="copyText(this)">6909064339</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Επικοινωνία</h3>
+                <div class="call-buttons">
+                    <button onclick="handlePhoneClick('6909064339', this)" class="btn btn-call">
+                        <i class="fa-solid fa-phone"></i> Δημήτρης
+                    </button>
+                    <button onclick="handlePhoneClick('6988592475', this)" class="btn btn-call">
+                        <i class="fa-solid fa-phone"></i> Θεοδώρα
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const weddingDate = new Date("July 19, 2026 19:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = weddingDate - now;
+            if (diff > 0) {
+                document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+            }
+        }, 1000);
+
+        window.addEventListener('scroll', function() {
+            const hero = document.getElementById('hero');
+            let scrollPos = window.scrollY;
+            let opacity = 1 - (scrollPos / 500); 
+            if (opacity >= 0) {
+                hero.style.opacity = opacity;
+            } else {
+                hero.style.opacity = 0;
+            }
+        });
+
+        function handlePhoneClick(number, btn) {
+            if ('ontouchstart' in window) {
+                window.location.href = "tel:" + number;
+            } else {
+                navigator.clipboard.writeText(number).then(() => {
+                    const originalText = btn.innerHTML;
+                    btn.innerHTML = "Αντιγράφηκε!";
+                    setTimeout(() => btn.innerHTML = originalText, 2000);
+                });
+            }
+        }
+
+        function copyText(element) {
+            const text = element.innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = element.innerText;
+                element.innerText = "Αντιγράφηκε!";
+                element.style.color = "#8e734b";
+                setTimeout(() => {
+                    element.innerText = originalText;
+                    element.style.color = "";
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
