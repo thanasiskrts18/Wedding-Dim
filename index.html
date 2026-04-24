@@ -37,9 +37,8 @@
             flex-direction: column;
             justify-content: space-between; 
             align-items: center;
-            /* Επαναφορά της εικόνας στο "contain" όπως πριν */
             background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), 
-                        url('wedding.jpg') center/contain no-repeat;
+                        url('wedding-inv.jpg') center/contain no-repeat;
             background-color: #f4f1ea; 
             padding: 60px 20px; 
             position: sticky;
@@ -68,7 +67,6 @@
 
         .hero h1 { font-size: clamp(2.3rem, 7vw, 4rem); margin-bottom: 5px; color: var(--primary); text-shadow: 1px 1px 2px rgba(255,255,255,0.8); }
         
-        /* Διατήρηση της ημερομηνίας με έντονο χρώμα */
         .date { 
             font-size: 1.1rem; 
             letter-spacing: 4px; 
@@ -202,4 +200,53 @@
     </div>
 
     <script>
-        const weddingDate = new Date("July 1
+        const weddingDate = new Date("July 19, 2026 19:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = weddingDate - now;
+            if (diff > 0) {
+                document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+            }
+        }, 1000);
+
+        window.addEventListener('scroll', function() {
+            const hero = document.getElementById('hero');
+            let scrollPos = window.scrollY;
+            let opacity = 1 - (scrollPos / 500); 
+            if (opacity >= 0) {
+                hero.style.opacity = opacity;
+            } else {
+                hero.style.opacity = 0;
+            }
+        });
+
+        function handlePhoneClick(number, btn) {
+            if ('ontouchstart' in window) {
+                window.location.href = "tel:" + number;
+            } else {
+                navigator.clipboard.writeText(number).then(() => {
+                    const originalText = btn.innerHTML;
+                    btn.innerHTML = "Αντιγράφηκε!";
+                    setTimeout(() => btn.innerHTML = originalText, 2000);
+                });
+            }
+        }
+
+        function copyText(element) {
+            const text = element.innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = element.innerText;
+                element.innerText = "Αντιγράφηκε!";
+                element.style.color = "#8e734b";
+                setTimeout(() => {
+                    element.innerText = originalText;
+                    element.style.color = "";
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
