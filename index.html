@@ -37,9 +37,9 @@
             flex-direction: column;
             justify-content: space-between; 
             align-items: center;
-            /* Επαναφορά στο contain για το αρχικό μέγεθος */
-            background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), 
-                        url('wedding.jpg') center / contain no-repeat #f7f4ed;
+            /* Διπλό background: Το wedding.jpg κεντραρισμένο και το wedding-backround.jpg από πίσω σε επανάληψη */
+            background: url('wedding.jpg') center / contain no-repeat,
+                        url('wedding-backround.jpg') left top repeat;
             padding: 60px 20px; 
             position: sticky;
             top: 0;
